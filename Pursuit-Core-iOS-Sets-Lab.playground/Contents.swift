@@ -109,11 +109,24 @@ let numsTwo = [1, 2, 3, 4, 5, 6]
 let numsThree = [5, 6, 7, 8, 9, 10, 11, 12]
 let numsFour = [1, 3, 4, 5, 6, 7, 9]
 
-var allNumsWithNoDuplicates: [Int] = []
+var newSet = Set<Int>()
 
+for num in numsOne {
+    newSet.insert(num)
+}
+for num in numsTwo {
+    newSet.insert(num)
+}
+for num in numsThree {
+    newSet.insert(num)
+}
+print(newSet.sorted())
+var allNumsWithNoDuplicates: [Int] = []
+allNumsWithNoDuplicates = Array(newSet.sorted())
+print(allNumsWithNoDuplicates)
 // Your code here
 
-//assert(allNumsWithNoDuplicates == [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], "Was expecting [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], but got \([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])")
+assert(allNumsWithNoDuplicates == [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], "Was expecting [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], but got \([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])")
 
 
 // Question Five
@@ -126,9 +139,45 @@ let strOne = "The quick brown fox jumps over the lazy dog"
 let strTwo = "The quick brown fox jumped over the lazy dog"
 let strThree = "Sphinx of black quartz, judge my vow"
 
+let alphabet: Set<Character> = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "]
+let lowercasedString1 = strOne.lowercased()
+let lowercasedString2 = strTwo.lowercased()
+let lowercasedString3 = strThree.lowercased()
+
+
+var string1AsSet = Set(strOne.lowercased())
+var string2AsSet = Set(strTwo.lowercased())
+var string3AsSet = Set(strThree.lowercased())
+
 var strOneIsPangram: Bool = false
 var strTwoIsPangram: Bool = false
 var strThreeIsPangram: Bool = false
+
+if alphabet == string1AsSet {
+    print("String1 is a Pangram")
+    strOneIsPangram = true
+} else {
+    print("string1 is not a pangram")
+    strOneIsPangram = false
+}
+if alphabet == string2AsSet {
+    print("string2  a pangram")
+    strTwoIsPangram = true
+} else {
+    print("string2 is not a pangram")
+    strTwoIsPangram = false
+}
+if alphabet == string3AsSet {
+    print("string3  a pangram")
+    strThreeIsPangram = true
+} else {
+    print("string3 is not a pangram")
+    strThreeIsPangram = false
+}
+
+print(Set(strOne.lowercased()))
+print(Set(strTwo.lowercased()))
+print(Set(strThree.lowercased()))
 
 // Your code here
 
